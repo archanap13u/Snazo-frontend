@@ -1,0 +1,151 @@
+.product-display-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  min-height: 80vh;
+}
+
+.product-display {
+  display: flex;
+  gap: 50px;
+}
+
+/* Left Side */
+.product-display-left {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+}
+
+.product-img-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.product-img-list img {
+  height: 100px;
+  width: 80px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 1px solid #eee;
+  transition: 0.3s;
+}
+
+.product-img-list img:hover {
+  border-color: #ff4141;
+}
+
+.product-display-main-img {
+  flex: 1;
+}
+
+.product-display-main-img img {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Right Side */
+.product-display-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-display-right h1 {
+  color: #3d3d3d;
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffc107; /* Star color */
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.product-rating span {
+  color: #666;
+  font-size: 14px;
+}
+
+.product-prices {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.product-price-old {
+  color: #8c8c8c;
+  text-decoration: line-through;
+  font-size: 18px;
+}
+
+.product-price-new {
+  color: #ff4141;
+}
+
+.product-description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 35px;
+  font-size: 16px;
+}
+
+.btn-add-cart {
+  padding: 15px 40px;
+  width: 250px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: #ff4141;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 40px;
+  transition: background 0.3s;
+}
+
+.btn-add-cart:hover {
+  background: #e63939;
+}
+
+.product-meta p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.product-meta span {
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .product-display {
+    flex-direction: column;
+  }
+  
+  .product-display-left {
+    flex-direction: column-reverse;
+  }
+  
+  .product-img-list {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .product-img-list img {
+    height: 70px;
+    width: 70px;
+  }
+}

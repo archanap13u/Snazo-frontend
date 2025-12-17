@@ -1,0 +1,402 @@
+/* Card Container - Swiggy Style */
+.product-card {
+  background: #ffffff;
+  border-radius: 24px;
+  /* Highly rounded */
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  /* Subtle base shadow */
+}
+
+/* Hover Effect: Lift & Deep Shadow */
+.product-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border-color: transparent;
+}
+
+/* Image Wrapper */
+.product-img-wrapper {
+  position: relative;
+  padding-top: 85%;
+  /* Slightly shorter than square for food-app look */
+  background: #ffffff;
+  overflow: hidden;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.product-img-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 15px;
+  transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-img-wrapper img {
+  transform: scale(1.1);
+}
+
+/* Badges */
+.badge {
+  position: absolute;
+  top: 15px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  /* Sharp corners for professional look */
+  font-size: 10px;
+  font-weight: 800;
+  color: #fff;
+  z-index: 2;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.discount-badge {
+  left: 15px;
+  background: #256fef;
+  /* Blue for discount (Swiggy style often uses blue/orange) */
+  border-radius: 0 8px 8px 0;
+}
+
+.bestseller-badge {
+  right: 15px;
+  background: #ff9f1a;
+}
+
+/* Wishlist Button */
+.wishlist-btn {
+  position: absolute;
+  top: 15px;
+  /* Moved to top right like generic apps */
+  right: 15px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  border: none;
+  font-size: 18px;
+  color: #555;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 3;
+}
+
+.product-card:hover .wishlist-btn {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.wishlist-btn:hover {
+  color: #ff4141;
+  /* Heart Red */
+  transform: scale(1.1);
+}
+
+/* Info Section */
+.product-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background: #fff;
+}
+
+.product-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-name {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #282c3f;
+  /* Dark gray, almost black but softer */
+  margin: 0 0 4px 0;
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.2s;
+}
+
+.product-card:hover .product-name {
+  color: #ff4141;
+  /* Brand highlight on hover */
+}
+
+.product-meta {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  background: #24963e;
+  /* Standard Green Rating Badge */
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.rating .stars {
+  display: none;
+  /* Hide emoji stars, use logic for custom star or just number */
+}
+
+.rating::before {
+  content: '★';
+  font-size: 10px;
+}
+
+.rating-num {
+  color: #999;
+  font-weight: 500;
+}
+
+.product-desc {
+  font-size: 0.9rem;
+  color: #686b78;
+  /* Soft subtitle gray */
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+  flex-grow: 1;
+}
+
+/* Footer Section */
+.product-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  border-top: 1px dashed #eee;
+  padding-top: 15px;
+}
+
+.price-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-current {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #282c3f;
+}
+
+.price-old {
+  font-size: 0.85rem;
+  color: #7e808c;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+/* Swiggy Style ADD Button */
+.add-cart-btn {
+  background: #fff;
+  color: #e85a2c;
+  /* Brand Orange */
+  border: 1px solid #d4d5d9;
+  padding: 8px 25px;
+  border-radius: 8px;
+  /* Slightly rounded, pill shape */
+  font-weight: 800;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.add-cart-btn:hover {
+  box-shadow: 0 4px 12px rgba(232, 90, 44, 0.2);
+  border-color: #e85a2c;
+  transform: translateY(-1px);
+}
+
+.add-cart-btn:active {
+  transform: scale(0.95);
+  background: #e85a2c;
+  color: white;
+}
+
+/* Pincode Checker (Hidden on Swiggy usually, but keeping it subtle) */
+.pincode-checker {
+  margin-top: 10px;
+  margin-bottom: 0;
+  padding: 8px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  border: none;
+}
+
+.pincode-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.pincode-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  background: #fff;
+  color: #333;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.pincode-input::placeholder {
+  color: #aaa;
+}
+
+.pincode-input:focus {
+  border-color: #e85a2c;
+}
+
+.pincode-check-btn {
+  padding: 8px 12px;
+  background: #fff;
+  border: none;
+  border-radius: 6px;
+  color: #e85a2c;
+  border: 1px solid #eee;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pincode-check-btn:hover:not(:disabled) {
+  background: #e85a2c;
+  color: white;
+}
+
+.pincode-check-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.availability-status {
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px;
+  border-radius: 4px;
+  text-align: left;
+  background: transparent;
+  border: none;
+}
+
+.availability-status.available {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+
+/* Responsive - Mobile Small Cards (3 Column Support) */
+@media (max-width: 480px) {
+  .product-card {
+    border-radius: 12px;
+  }
+
+  .badge {
+    font-size: 8px;
+    padding: 2px 6px;
+    top: 8px;
+  }
+
+  .discount-badge {
+    left: 8px;
+  }
+
+  .bestseller-badge {
+    right: 8px;
+  }
+
+  .wishlist-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    top: 8px;
+    right: 8px;
+  }
+
+  .product-info {
+    padding: 8px;
+  }
+
+  .product-name {
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+    -webkit-line-clamp: 2;
+  }
+
+  .product-desc {
+    display: none;
+    /* Hide description on mobile to save space */
+  }
+
+  .rating {
+    font-size: 9px;
+    padding: 1px 4px;
+  }
+
+  .rating::before {
+    font-size: 8px;
+  }
+
+  .price-current {
+    font-size: 0.9rem;
+  }
+
+  .price-old {
+    font-size: 0.7rem;
+  }
+
+  .add-cart-btn {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  .pincode-checker {
+    display: none;
+    /* Hide pincode checker on card for mobile */
+  }
+
+  .product-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 5px;
+    padding-top: 8px;
+  }
+}
