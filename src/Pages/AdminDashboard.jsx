@@ -275,7 +275,7 @@ const AdminDashboard = () => {
 
   // --- RENDER SECTIONS ---
   const renderNavbar = () => (
-    <nav className="navbar">
+    <nav className="admin-navbar">
       <div className="navbar-header">
         <h2>Admin Panel</h2>
         <p>SNAZO Dashboard</p>
