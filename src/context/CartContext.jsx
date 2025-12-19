@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 const CartContext = createContext();
 
@@ -54,7 +55,22 @@ export const CartProvider = ({ children }) => {
       }
       return newCart;
     });
-
+    toast.success("Item added to cart", {
+      position: "bottom-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      style: {
+        background: "#333",
+        color: "#fff",
+        borderRadius: "8px",
+        marginBottom: "60px" // Lift above standard bottom nav/footer
+      }
+    });
   };
 
   const updateQuantity = (id, change) => {

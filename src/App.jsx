@@ -71,7 +71,7 @@ const AppContent = () => {
     <div className="app">
       {/* Global Toast Notification Config */}
       <ToastContainer
-        position="bottom-right"
+        position="bottom-center"
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
