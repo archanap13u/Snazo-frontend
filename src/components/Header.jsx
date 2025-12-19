@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext';
 import { FaShoppingCart, FaHome, FaUtensils, FaPhone, FaShieldAlt } from "react-icons/fa";
 import { HiMenu, HiX } from "react-icons/hi";
 import { MdRule } from "react-icons/md";
-// import '../styles/Header.css';
+import './Header.css';
 // import { GiKnifeFork } from "react-icons/gi";
 import { RiFilePaper2Fill } from "react-icons/ri";
 import { IoDocumentTextSharp, IoPeopleSharp } from "react-icons/io5";
@@ -48,17 +48,15 @@ const Header = ({ setIsAuthOpen }) => {
   };
 
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+    <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         {/* Logo */}
-        <Link to="/" className="">
-          <div className="logo-icon">
-            <img
-              src="https://i.pinimg.com/736x/3a/0d/3d/3a0d3d385c468b2d00dbb6a00096533e.jpg"
-              alt="Logo"
-              style={{ width: "80px", height: "auto", borderRadius: "50%" }}
-            />
-          </div>
+        <Link to="/" className="nav-logo">
+          <img
+            src="https://i.pinimg.com/736x/3a/0d/3d/3a0d3d385c468b2d00dbb6a00096533e.jpg"
+            alt="Logo"
+            className="logo-image"
+          />
         </Link>
 
 
@@ -80,40 +78,20 @@ const Header = ({ setIsAuthOpen }) => {
         </nav>
 
         {/* User Actions */}
-        <div className="nav-actions" style={{ backgroundColor: '', marginLeft: '20px', display: 'flex', justifyContent: 'space-between' }}>
+        <div className="nav-actions">
           {currentUser ? (
-            <div className="user-menu">
-
-              <div className="user-info" >
-
-                <button onClick={handleLogout} className="logout-btn">Logout</button>
-              </div>
-            </div>
+            <button onClick={handleLogout} className="logout-btn">Logout</button>
           ) : (
-            // <div style={{backgroundColor:'blue'}}>
-            <button onClick={() => setIsAuthOpen(true)} className="login-btn" >
-              Login / Sign Up
+            <button onClick={() => setIsAuthOpen(true)} className="login-btn">
+              Login
             </button>
-            // {/* </div> */}
           )}
 
           {/* Cart Icon */}
-          <div className="cart-icon-wrapper" style={{ marginLeft: '15px' }}>
-            <button
-              type="button"
-              onClick={handleCartClick}
-              className="cartLink"
-              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
-            >
-              <FaShoppingCart className="cartIcon" size={38} style={{ pointerEvents: 'none' }} />
-            </button>
-
-            {/* Always show count for debugging, or maybe user wants to see 0? 
-                Logic: If we want to hide 0, revert this later. 
-                But for now, let's ensure it renders. */}
+          <div className="cart-icon-wrapper" onClick={handleCartClick}>
+            <FaShoppingCart className="cartIcon" size={20} />
             <span className="cart-count">{getCartCount() || 0}</span>
           </div>
-
         </div>
 
         {/* Mobile Menu Toggle */}
