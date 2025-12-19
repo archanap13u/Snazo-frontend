@@ -77,7 +77,7 @@ const Home = () => {
               <input
                 type="text"
                 className="hero-search-input"
-                placeholder="Search for food, groceries..."
+                placeholder="Search for happiness..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onKeyPress={handleKeyPress}

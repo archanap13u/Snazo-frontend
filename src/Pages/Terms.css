@@ -1,12 +1,12 @@
 /* TERMS & LEGAL PAGE */
 body {
-    background-color: #f8391d;
+    background-color: #ff5722;
     /* Base fallback */
 }
 
 /* legal-section acts as the page container */
 .legal-section {
-    background: radial-gradient(circle at top, #ff6b6b, #f8391d);
+    background: radial-gradient(circle at top, #ff7f50, #ff5722);
     min-height: 100vh;
     padding: 120px 20px 60px;
     font-family: 'Playfair Display', serif;

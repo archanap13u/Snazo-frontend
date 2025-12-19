@@ -18,6 +18,7 @@ const AdminDashboard = () => {
   const [orders, setOrders] = useState([]);
   const [pincodes, setPincodes] = useState([]);
   const [promos, setPromos] = useState([]);
+  const [partners, setPartners] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const [isEditing, setIsEditing] = useState(false);
@@ -50,6 +51,7 @@ const AdminDashboard = () => {
     if (activeTab === 'orders') fetchOrders();
     if (activeTab === 'pincodes') fetchPincodes();
     if (activeTab === 'promos') fetchPromos();
+    if (activeTab === 'partners') fetchPartners();
   }, [activeTab]);
 
   const fetchProducts = async () => {
@@ -77,6 +79,13 @@ const AdminDashboard = () => {
     try {
       const { data } = await API.get('/promos');
       setPromos(data);
+    } catch (error) { console.error(error); }
+  };
+
+  const fetchPartners = async () => {
+    try {
+      const { data } = await API.get('/partners');
+      setPartners(data);
     } catch (error) { console.error(error); }
   };
 
@@ -230,6 +239,7 @@ const AdminDashboard = () => {
   const handleDeletePincode = async (id) => { await API.delete(`/pincodes/${id}`); fetchPincodes(); };
   const handleAddPromo = async (e) => { e.preventDefault(); await API.post(`/promos`, promoInput); setPromoInput({ code: '', discountValue: '' }); fetchPromos(); };
   const handleDeletePromo = async (id) => { await API.delete(`/promos/${id}`); fetchPromos(); };
+  const handleDeletePartner = async (id) => { await API.delete(`/partners/${id}`); fetchPartners(); };
 
   // --- STATE FOR DROPDOWNS ---
   const [dropdownOpen, setDropdownOpen] = useState(null);
@@ -321,6 +331,14 @@ const AdminDashboard = () => {
             onClick={() => { setActiveTab('promos'); setDropdownOpen(null); }}
           >
             🏷️ Promos
+          </button>
+        </li>
+        <li className="nav-item">
+          <button
+            className={`nav-link ${activeTab === 'partners' ? 'active' : ''}`}
+            onClick={() => { setActiveTab('partners'); setDropdownOpen(null); }}
+          >
+            🤝 Partners
           </button>
         </li>
       </ul>
@@ -492,6 +510,39 @@ const AdminDashboard = () => {
               <thead><tr><th>Code</th><th>Discount</th><th>Action</th></tr></thead>
               <tbody>{promos.map(p => (<tr key={p._id}><td>{p.code}</td><td>₹{p.discountValue}</td><td><button className="btn-icon delete" onClick={() => handleDeletePromo(p._id)}>🗑️</button></td></tr>))}</tbody>
             </table>
+          </div>
+        )}
+
+        {activeTab === 'partners' && (
+          <div className="content-section">
+            <h3>Partner Requests</h3>
+            <div className="table-wrapper">
+              <table className="admin-table">
+                <thead><tr><th>Name</th><th>Business</th><th>Contact</th><th>Date</th><th>Action</th></tr></thead>
+                <tbody>
+                  {partners.map(p => (
+                    <tr key={p._id}>
+                      <td>
+                        <div className="fw-bold">{p.name}</div>
+                        <div className="text-muted">{p.email}</div>
+                      </td>
+                      <td>
+                        <div className="fw-bold">{p.businessName}</div>
+                        <div className="text-muted">{p.businessType}</div>
+                      </td>
+                      <td>
+                        <div>{p.phone}</div>
+                        <div className="text-muted">{p.city}</div>
+                      </td>
+                      <td>{new Date(p.date).toLocaleDateString()}</td>
+                      <td>
+                        <button className="btn-icon delete" onClick={() => handleDeletePartner(p._id)}>🗑️</button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
       </div>

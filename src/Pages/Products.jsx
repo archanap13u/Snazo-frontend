@@ -87,14 +87,14 @@ const Products = () => {
         {promos.length > 0 ? (
           <div className="promo-content">
             <h2>❄️ Ready to eat</h2>
-            <p> Get ₹{promos[0].discountValue} OFF on all frozen delights</p>
+            <p> Get ₹{promos[0].discountValue} OFF on all Ready to eat delights</p>
             <div className="promo-code">{promos[0].code}</div>
             {/* <p>⏰ Hurry! Offer expires at midnight</p> */}
           </div>
         ) : (
           <div className="promo-content">
             <h2>❄️ Ready to eat</h2>
-            <p>Delicious frozen food delivered to you.</p>
+            <p>Delicious Ready to eat food delivered to you.</p>
           </div>
         )}
       </section>
@@ -102,7 +102,7 @@ const Products = () => {
       {/* Header Section */}
       <div class="section-header">
         <div class="section-label">Premium Collection</div>
-        <h2 class="section-title hero-title">Frozen Delights</h2>
+        <h2 class="section-title hero-title">Ready to eat Delights</h2>
         <p class="section-subtitle">Experience the freshness locked in every bite</p>
       </div>
 

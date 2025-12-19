@@ -63,7 +63,10 @@ const Footer = () => {
         {/* Section 4: Contact */}
         <div className="footer-col">
           <h4>Get in Touch</h4>
-          <p>📍 123 Fashion Street, Tech City</p>
+          <p>📍Jig Saw, 5th Floor
+            Kandamkulathy Towers
+            (Next to Blitz Academy) MG Rd
+            Ernakulam, Kerala 682011</p>
           <p>📧 support@snazo.com</p>
           <p>📞 +91 98765 43210</p>
         </div>

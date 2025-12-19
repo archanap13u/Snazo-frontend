@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Partner.css';
+import PartnerModal from '../components/PartnerModal';
 
 const Partner = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="partner-page">
+      <PartnerModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       {/* Hero Section */}
       <section className="partner-hero">
         <div className="hero-content">
-          <span className="hero-badge">🚀 BECOME A PARTNER</span>
+          <span className="hero-badge" style={{ backgroundColor: 'orange', color: 'white' }}>🚀 BECOME A PARTNER</span>
           <h1>Grow Your Business With <span className="highlight">SNAZO</span></h1>
-          <p className="hero-subtitle">Join India's fastest-growing frozen food network. Get access to premium products,
+          <p className="hero-subtitle">Join India's fastest-growing Ready to eat food network. Get access to premium products,
             dedicated support, and unlimited growth potential.</p>
 
           <div className="hero-stats">
@@ -29,7 +33,7 @@ const Partner = () => {
           </div>
 
           <div className="hero-buttons">
-            <button className="btn-primary">Start Partnership</button>
+            <button className="btn-primary" onClick={() => setIsModalOpen(true)}>Start Partnership</button>
             <Link to="/contact" className="btn-secondary">Talk to Sales</Link>
           </div>
         </div>
@@ -91,7 +95,7 @@ const Partner = () => {
         <div className="cta-box">
           <h2>Ready to Partner?</h2>
           <p>Join the SNAZO family and take your business to the next level.</p>
-          <button className="btn-primary">Apply Now - It's Free</button>
+          <button className="btn-primary" onClick={() => setIsModalOpen(true)}>Apply Now - It's Free</button>
         </div>
       </section>
     </div>
