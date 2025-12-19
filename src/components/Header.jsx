@@ -103,16 +103,16 @@ const Header = ({ setIsAuthOpen }) => {
       {/* Mobile Menu Dropdown */}
       <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
         <div className="mobile-menu-container">
-          <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>Home</Link>
-          <Link to="/products" className="nav-link" onClick={() => setMenuOpen(false)}>Products</Link>
-          <Link to="/terms" className="nav-link" onClick={() => setMenuOpen(false)}>Terms & Conditions</Link>
-          <Link to="/contact" className="nav-link" onClick={() => setMenuOpen(false)}>Contact</Link>
-          <Link to="/partner" className="nav-link" onClick={() => setMenuOpen(false)}>Partner with us</Link>
+          <Link to="/" className="nav-link" onClick={() => { setMenuOpen(false); scrollToTop(); }}>Home</Link>
+          <Link to="/products" className="nav-link" onClick={() => { setMenuOpen(false); scrollToTop(); }}>Products</Link>
+          <Link to="/terms" className="nav-link" onClick={() => { setMenuOpen(false); scrollToTop(); }}>Terms & Conditions</Link>
+          <Link to="/contact" className="nav-link" onClick={() => { setMenuOpen(false); scrollToTop(); }}>Contact</Link>
+          <Link to="/partner" className="nav-link" onClick={() => { setMenuOpen(false); scrollToTop(); }}>Partner with us</Link>
           {currentUser && (
-            <Link to="/orders" className="nav-link" onClick={() => setMenuOpen(false)}>My Orders</Link>
+            <Link to="/orders" className="nav-link" onClick={() => { setMenuOpen(false); scrollToTop(); }}>My Orders</Link>
           )}
           {isAdmin && (
-            <Link to="/admin" className="nav-link admin-link" onClick={() => setMenuOpen(false)}>
+            <Link to="/admin" className="nav-link admin-link" onClick={() => { setMenuOpen(false); scrollToTop(); }}>
               Admin panel
             </Link>
           )}
