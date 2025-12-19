@@ -23,7 +23,11 @@ const Footer = () => {
         {/* Section 1: Brand Info */}
         <div className="footer-col brand-col">
           <div className="footer-logo">
-            <h2>SNAZO</h2>
+            <img
+              src="https://i.pinimg.com/736x/3a/0d/3d/3a0d3d385c468b2d00dbb6a00096533e.jpg"
+              alt="Snazo Logo"
+              className="footer-logo-image"
+            />
           </div>
           <p className="brand-desc">
             Premium quality products delivered right to your doorstep.
