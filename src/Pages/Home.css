@@ -1,7 +1,8 @@
 /* Page Layout */
 .home-page {
 
-  background-color: #f8391d;
+  /* background-color: #f8391d; */
+  background-color: #ff4500;
   color: #e0e0e0;
   font-family: 'Playfair Display', serif;
   overflow-x: hidden;
