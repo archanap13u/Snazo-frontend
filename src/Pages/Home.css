@@ -523,8 +523,9 @@
   }
 
   .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    /* Fixed 2 columns on tablet */
+    gap: 20px;
   }
 
   /* Promo Banner */
@@ -650,9 +651,10 @@
   }
 
   .products-grid {
-    grid-template-columns: 1fr;
-    /* Single column on small mobile */
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns on mobile - Swiggy style */
+    gap: 12px;
+    /* Tighter gap for compact look */
   }
 
   /* Promo */

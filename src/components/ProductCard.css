@@ -454,28 +454,116 @@
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
   .product-card {
-    border-radius: 16px;
+    border-radius: 14px;
+  }
+
+  /* Swiggy-style compact image */
+  .product-img-wrapper {
+    padding-top: 55%;
+    /* Slightly shorter for compact look */
+  }
+
+  .product-info {
+    padding: 10px 12px 12px;
   }
 
   .product-name {
-    font-size: 1.05rem;
+    font-size: 0.95rem;
+    -webkit-line-clamp: 1;
+    /* Single line for compact view */
+    line-clamp: 1;
+    margin-bottom: 6px;
+  }
+
+  .product-meta {
+    margin-bottom: 6px;
+  }
+
+  .rating-badge {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+
+  .product-desc {
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .product-footer {
+    padding-top: 8px;
   }
 
   .price-current {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
-  .add-btn {
-    padding: 0 22px;
-    height: 38px;
+  .price-old {
     font-size: 0.85rem;
   }
 
+  .add-btn {
+    padding: 0 18px;
+    height: 36px;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+  }
+
   .qty-control {
-    height: 38px;
+    height: 36px;
+  }
+
+  .qty-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 1.1rem;
+  }
+
+  .qty-value {
+    font-size: 0.95rem;
+    min-width: 24px;
+  }
+
+  /* Hide or shrink delivery partners on mobile for cleaner look */
+  .delivery-partners {
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+
+  .partners-label {
+    font-size: 0.65rem;
+    margin-bottom: 6px;
   }
 
   .partners-logos img {
+    height: 14px;
+    padding: 4px 8px;
+  }
+
+  /* Smaller badges */
+  .badge {
+    padding: 4px 10px;
+    font-size: 0.6rem;
+    top: 8px;
+  }
+
+  .discount-badge {
+    left: 8px;
+  }
+
+  .bestseller-badge {
+    right: 40px;
+  }
+
+  .wishlist-btn {
+    width: 32px;
+    height: 32px;
+    top: 8px;
+    right: 8px;
+  }
+
+  .wishlist-btn svg {
+    width: 16px;
     height: 16px;
   }
 }

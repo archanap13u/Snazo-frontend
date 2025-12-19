@@ -352,8 +352,9 @@
 
 @media (max-width: 600px) {
   .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns - Swiggy style */
+    gap: 12px;
   }
 }
 
@@ -450,8 +451,9 @@
   }
 
   .products-grid {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns on tablet */
+    gap: 16px;
   }
 }
 
@@ -469,10 +471,10 @@
   }
 
   .products-grid {
-    grid-template-columns: repeat(3, 1fr);
-    /* 3 Columns */
-    gap: 8px;
-    /* Tighter gap */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 Columns - Swiggy style */
+    gap: 10px;
+    /* Compact gap */
   }
 
   .promo-banner {
