@@ -15,9 +15,9 @@
 }
 
 .navbar.scrolled {
-  background: transparent;
+  background: rgba(248, 57, 29, 0.85);
   height: 100px;
-  /* Transparent and minimized on scroll */
+  /* Semi-transparent brand color on scroll */
   backdrop-filter: none;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
