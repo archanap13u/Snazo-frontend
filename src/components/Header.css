@@ -70,6 +70,14 @@
   border-radius: 50%;
   object-fit: cover;
   /* border: 2px solid rgba(255, 255, 255, 0.5); */
+  border: 2px solid white;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.logo-image:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 1);
+  transform: scale(1.05);
 }
 
 .navbar.scrolled .logo-image {
