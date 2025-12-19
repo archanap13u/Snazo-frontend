@@ -138,7 +138,7 @@
 
 /* PROMO BANNER - Ice Card Theme */
 .promo-banner {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  background: radial-gradient(circle at top, #ff6a33, #ff4500);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 3rem;
@@ -496,7 +496,7 @@
 
 /* PROMO BANNER */
 .promo-banner {
-  background: rgba(255, 255, 255, 0.1);
+  background: radial-gradient(circle at top, #ff6a33, #ff4500);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   padding: 2rem;

@@ -312,7 +312,8 @@
 
 /* Promo Banner */
 .promo-banner {
-  background: linear-gradient(135deg, #d63031 0%, #e17055 50%, #fdcb6e 100%);
+  /* background: linear-gradient(135deg, #d63031 0%, #e17055 50%, #fdcb6e 100%); */
+  background: radial-gradient(circle at top, #ff6a33, #ff4500);
   padding: 60px 20px;
   text-align: center;
   margin-top: 80px;

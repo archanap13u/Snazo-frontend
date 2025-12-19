@@ -6,7 +6,7 @@ body {
 
 /* legal-section acts as the page container */
 .legal-section {
-    background: radial-gradient(circle at top, #ff6a33, #ff4500);
+    background: radial-gradient(circle at top, #ff4500);
     min-height: 100vh;
     padding: 120px 20px 60px;
     font-family: 'Playfair Display', serif;
