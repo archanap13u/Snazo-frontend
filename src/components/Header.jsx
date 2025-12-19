@@ -48,7 +48,7 @@ const Header = ({ setIsAuthOpen }) => {
   };
 
   return (
-    <header className={`navbar ${isScrolled ? 'scrolled' : ''}`} style={{ backgroundColor: '#f8391d' }}>
+    <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
         {/* Logo */}
         <Link to="/" className="nav-logo">

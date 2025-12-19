@@ -7,8 +7,7 @@
   height: 220px;
   z-index: 1000;
   transition: all 0.3s ease;
-  /* background: #f8391d; */
-
+  background: #f8391d;
   /* Brand color default */
   backdrop-filter: none;
   box-shadow: none;
@@ -16,8 +15,9 @@
 }
 
 .navbar.scrolled {
-  background: #f8391d;
-  /* Brand color scrolled */
+  background: transparent;
+  height: 100px;
+  /* Transparent and minimized on scroll */
   backdrop-filter: none;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -49,7 +49,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 220px;
+  height: 100%;
 }
 
 /* Logo */
