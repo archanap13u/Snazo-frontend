@@ -1,12 +1,12 @@
 /* TERMS & LEGAL PAGE */
 body {
-    background-color: #ff5722;
+    background-color: #ff4500;
     /* Base fallback */
 }
 
 /* legal-section acts as the page container */
 .legal-section {
-    background: radial-gradient(circle at top, #ff7f50, #ff5722);
+    background: radial-gradient(circle at top, #ff6a33, #ff4500);
     min-height: 100vh;
     padding: 120px 20px 60px;
     font-family: 'Playfair Display', serif;
@@ -88,7 +88,7 @@ body {
 
 .legal-tab.active {
     background: #fff;
-    color: #f8391d;
+    color: #ff4500;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     border-color: #fff;
 }
@@ -204,7 +204,7 @@ body {
 
 .legal-tab.active {
     background: white;
-    color: #f8391d;
+    color: #ff4500;
     border-color: var(--primary);
 }
 

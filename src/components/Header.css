@@ -7,7 +7,7 @@
   height: 100px;
   z-index: 1000;
   transition: all 0.3s ease;
-  background: #f8391d;
+  background: #ff4500;
   /* Brand color default */
   backdrop-filter: none;
   box-shadow: none;
@@ -15,7 +15,7 @@
 }
 
 .navbar.scrolled {
-  background: rgba(248, 57, 29, 0.85);
+  background: rgba(255, 69, 0, 0.85);
   height: 100px;
   /* Semi-transparent brand color on scroll */
   backdrop-filter: none;
@@ -81,7 +81,7 @@
 }
 
 .navbar.scrolled .logo-image {
-  border-color: #f8391d;
+  border-color: #ff4500;
 }
 
 /* Desktop Navigation */
@@ -253,7 +253,7 @@
   top: 70px;
   left: 0;
   width: 100%;
-  background: #f8391d;
+  background: #ff4500;
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.4s ease;

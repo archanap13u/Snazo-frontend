@@ -27,9 +27,9 @@
     max-width: 550px;
     padding: 2.5rem;
     border-radius: 20px;
-    border: 1px solid #f8391d;
+    border: 1px solid #ff4500;
     position: relative;
-    box-shadow: 0 25px 50px rgba(248, 57, 29, 0.3);
+    box-shadow: 0 25px 50px rgba(255, 69, 0, 0.3);
     transform: translateY(20px);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     max-height: 90vh;
@@ -54,7 +54,7 @@
 }
 
 .modal-close:hover {
-    color: #f8391d;
+    color: #ff4500;
 }
 
 .modal-header {
@@ -63,7 +63,7 @@
 }
 
 .modal-header h2 {
-    color: #f8391d;
+    color: #ff4500;
     font-size: 1.8rem;
     margin-bottom: 10px;
 }
@@ -85,7 +85,7 @@
 }
 
 .form-group label {
-    color: #f8391d;
+    color: #ff4500;
     font-size: 0.9rem;
     font-weight: 600;
 }
@@ -102,7 +102,7 @@
 }
 
 .form-control:focus {
-    border-color: #f8391d;
+    border-color: #ff4500;
     background: #fff;
 }
 
@@ -112,7 +112,7 @@ textarea.form-control {
 }
 
 .submit-btn {
-    background: #f8391d;
+    background: #ff4500;
     color: #fff;
     border: none;
     padding: 14px;
@@ -129,7 +129,7 @@ textarea.form-control {
 .submit-btn:hover {
     background: #e6351b;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(248, 57, 29, 0.3);
+    box-shadow: 0 5px 15px rgba(255, 69, 0, 0.3);
 }
 
 .submit-btn:disabled {

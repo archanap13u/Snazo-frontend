@@ -43,7 +43,7 @@ font-family: 'Playfair Display', serif;  background-color: var(--dark);
   
 } */
 body {
-  background: #f8391d;
+  background: #ff4500;
   color: white;
   overflow-x: hidden;
   min-height: 100vh;
@@ -295,7 +295,7 @@ a {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #f8391d;
+  background-color: #ff4500;
 }
 
 main {
@@ -540,7 +540,7 @@ main {
   right: -480px;
   width: 480px;
   height: 100vh;
-  background: #f8391d;
+  background: #ff4500;
   z-index: 2000;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);

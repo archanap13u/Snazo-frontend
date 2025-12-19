@@ -1,6 +1,6 @@
 /* Page Layout */
 .products-page {
-  background-color: #f8391d;
+  background-color: #ff4500;
   min-height: 100vh;
   padding: 100px 20px 60px;
   font-family: 'Playfair Display', serif;
@@ -65,7 +65,7 @@
 
 .filter-btn.active {
   background: #fff;
-  color: #f8391d;
+  color: #ff4500;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -123,7 +123,7 @@
 .reset-btn {
   background: #fff;
   border: none;
-  color: #f8391d;
+  color: #ff4500;
   padding: 12px 30px;
   border-radius: 30px;
   cursor: pointer;
@@ -191,7 +191,7 @@
 .promo-code {
   display: inline-block;
   background: #fff;
-  color: #f8391d;
+  color: #ff4500;
   padding: 1rem 3rem;
   border-radius: 50px;
   font-weight: 900;
@@ -337,7 +337,7 @@
 
 .filter-btn.active {
   background: #fff;
-  color: #f8391d;
+  color: #ff4500;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
