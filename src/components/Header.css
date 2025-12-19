@@ -6,29 +6,38 @@
   width: 100%;
   z-index: 1000;
   transition: all 0.3s ease;
-  background: #f8391d;
-  /* Restore brand red background */
-  backdrop-filter: blur(10px);
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+  background: transparent;
+  /* Transparent default */
+  backdrop-filter: none;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  /* Glassy white tint */
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* When scrolled, change text colors for contrast against white background */
+.navbar.scrolled .nav-link,
+.navbar.scrolled .login-btn {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Keep text white on scroll for glassy effect */
 .navbar.scrolled .nav-link,
 .navbar.scrolled .menu-toggle {
-  color: #333;
+  color: white;
 }
 
 .navbar.scrolled .nav-link:hover {
-  color: #f8391d;
+  color: #ffd700;
 }
 
 .navbar.scrolled .nav-link::after {
-  background-color: #f8391d;
+  background-color: #ffd700;
 }
 
 .nav-container {
@@ -115,32 +124,35 @@
 }
 
 /* Login Button */
-/* Login Button - Desktop Style */
+/* Login Button - Desktop Style (Transparent/Glassy) */
 .login-btn {
-  background-color: white;
-  color: #f8391d;
-  border: none;
-  padding: 8px 20px;
-  border-radius: 20px;
-  font-weight: 700;
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 
 .login-btn:hover {
-  background: #f0f0f0;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .navbar.scrolled .login-btn {
-  background-color: #f8391d;
+  background: transparent;
   color: white;
+  border-color: rgba(255, 255, 255, 0.5);
 }
 
 .navbar.scrolled .login-btn:hover {
-  background-color: #e0321a;
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
 }
 
 /* Logout Button */
@@ -160,12 +172,12 @@
 }
 
 .navbar.scrolled .logout-btn {
-  border-color: #333;
-  color: #333;
+  border-color: white;
+  color: white;
 }
 
 .navbar.scrolled .logout-btn:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Cart */
@@ -186,7 +198,7 @@
 }
 
 .navbar.scrolled .cart-icon-wrapper:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .cartIcon {
@@ -195,7 +207,7 @@
 }
 
 .navbar.scrolled .cartIcon {
-  color: #333;
+  color: white;
 }
 
 .cart-count {
@@ -236,6 +248,7 @@
   max-height: 0;
   transition: max-height 0.4s ease;
   z-index: 999;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mobile-menu.open {
