@@ -126,8 +126,8 @@ const Home = () => {
           <div className="feature-item">
             <span className="f-icon">🚀</span>
             <div>
-              <h4>Free Shipping</h4>
-              <p>On orders over ₹499</p>
+              <h4>No Preservatives</h4>
+              <p>100% Natural ingredients</p>
             </div>
           </div>
           <div className="feature-item">
