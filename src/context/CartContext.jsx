@@ -31,7 +31,7 @@ export const CartProvider = ({ children }) => {
   const openCart = () => setIsCartOpen(true);
   const closeCart = () => setIsCartOpen(false);
   const toggleCart = () => setIsCartOpen(prev => !prev);
-  
+
   const openCheckout = () => setIsCheckoutOpen(true);
   const closeCheckout = () => setIsCheckoutOpen(false);
 
@@ -39,22 +39,22 @@ export const CartProvider = ({ children }) => {
     setCart(prev => {
       const newCart = new Map(prev);
       const productId = product._id || product.id;
-      
+
       const item = newCart.get(productId);
       if (item) {
         newCart.set(productId, { ...item, quantity: item.quantity + 1 });
       } else {
-        newCart.set(productId, { 
+        newCart.set(productId, {
           id: productId,
           name: product.name,
           image: product.image,
           new_price: Number(product.new_price),
-          quantity: 1 
+          quantity: 1
         });
       }
       return newCart;
     });
-    setIsCartOpen(true);
+
   };
 
   const updateQuantity = (id, change) => {
@@ -62,7 +62,7 @@ export const CartProvider = ({ children }) => {
       const newCart = new Map(prev);
       const item = newCart.get(id);
       if (!item) return prev;
-      
+
       const newQty = item.quantity + change;
       if (newQty <= 0) {
         newCart.delete(id);
@@ -118,7 +118,7 @@ export const CartProvider = ({ children }) => {
     getCartTotal,
     getCartCount,
     // ALIAS to fix the "is not a function" error
-    getTotalCartItems: getCartCount 
+    getTotalCartItems: getCartCount
   };
 
   return (
