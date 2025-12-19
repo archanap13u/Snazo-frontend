@@ -6,8 +6,8 @@
   width: 100%;
   z-index: 1000;
   transition: all 0.3s ease;
-  background: rgba(248, 57, 29, 0.95);
-  /* Main brand color with slight transparency */
+  background: #f8391d;
+  /* Restore brand red background */
   backdrop-filter: blur(10px);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
 }
@@ -115,15 +115,17 @@
 }
 
 /* Login Button */
+/* Login Button - Desktop Style */
 .login-btn {
   background-color: white;
   color: #f8391d;
   border: none;
   padding: 8px 20px;
   border-radius: 20px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .login-btn:hover {
