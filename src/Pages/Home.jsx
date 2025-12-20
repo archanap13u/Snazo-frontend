@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import API from '../services/api'; // Use centralized API
 import ProductCard from '../components/ProductCard'; // Use reusable card
+import { useProducts } from '../context/ProductContext';
 import './Home.css'; // Import CSS
 import ReviewsSection from '../components/ReviewsSection';
 import { FaStar, FaCompass } from 'react-icons/fa';
+
 const Home = () => {
-  const [products, setProducts] = useState([]);
+  const { products, loading } = useProducts();
   const [promos, setPromos] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
@@ -16,8 +17,6 @@ const Home = () => {
     const fetchPromos = async () => {
       try {
         const { data } = await API.get('/promos');
-        // Filter only active promos if needed, assuming backend returns all
-        // The backend model has 'active' field now.
         const activePromos = data.filter(p => p.active !== false);
         setPromos(activePromos);
       } catch (err) {
@@ -25,24 +24,6 @@ const Home = () => {
       }
     };
     fetchPromos();
-  }, []);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        // Use API instance (Base URL is handled in services/api.js)
-        const { data } = await API.get('/allproducts');
-
-        // Handle data safely
-        setProducts(Array.isArray(data) ? data : []);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchProducts();
   }, []);
 
   // Logic: Show 'Best Sellers' first, otherwise recent products
@@ -155,8 +136,16 @@ const Home = () => {
           <p class="section-subtitle">Handcrafted with love, served with excellence</p>
         </div>
 
-        {loading ? (
-          <div className="loading-spinner">Loading top picks...</div>
+        {loading && products.length === 0 ? (
+          <div className="products-grid">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="skeleton-card">
+                <div className="skeleton-img"><div className="skeleton-shimmer"></div></div>
+                <div className="skeleton-text"><div className="skeleton-shimmer"></div></div>
+                <div className="skeleton-text short"><div className="skeleton-shimmer"></div></div>
+              </div>
+            ))}
+          </div>
         ) : (
           <>
             {displayProducts.length > 0 ? (

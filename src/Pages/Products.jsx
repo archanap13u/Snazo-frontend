@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useLocation } from 'react-router-dom';
 import API from '../services/api'; // Use centralized API
 import ProductCard from '../components/ProductCard'; // Use reusable component
+import { useProducts } from '../context/ProductContext';
 import './Products.css';
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
+  const { products, loading } = useProducts();
   const [promos, setPromos] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [activeCategory, setActiveCategory] = useState('All');
+  const [searchTerm, setSearchTerm] = useState("");
+  const location = useLocation();
 
   useEffect(() => {
     const fetchPromos = async () => {
@@ -22,29 +24,8 @@ const Products = () => {
     };
     fetchPromos();
   }, []);
-  const [activeCategory, setActiveCategory] = useState('All');
-  const [searchTerm, setSearchTerm] = useState("");
-  const location = useLocation();
 
   const categories = ['All', 'Veg', 'Non-Veg'];
-
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        // Use the centralized API instance
-        const { data } = await API.get('/allproducts');
-
-        const productList = Array.isArray(data) ? data : [];
-        setProducts(productList);
-        setFilteredProducts(productList);
-      } catch (error) {
-        console.error("Failed to fetch products", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadData();
-  }, []);
 
   // Handle Incoming Search from Home Page
   useEffect(() => {
@@ -55,8 +36,8 @@ const Products = () => {
     }
   }, [location.state]);
 
-  // Handle Search & Filter
-  useEffect(() => {
+  // Handle Search & Filter with useMemo for performance
+  const filteredProducts = useMemo(() => {
     let result = products;
 
     // Filter by Category
@@ -74,7 +55,7 @@ const Products = () => {
       );
     }
 
-    setFilteredProducts(result);
+    return result;
   }, [activeCategory, searchTerm, products]);
 
   const handleFilter = (category) => {
@@ -100,10 +81,10 @@ const Products = () => {
       </section>
 
       {/* Header Section */}
-      <div class="section-header">
-        <div class="section-label">Premium Collection</div>
-        <h2 class="section-title hero-title">Ready to eat Delights</h2>
-        <p class="section-subtitle">Experience the freshness locked in every bite</p>
+      <div className="section-header">
+        <div className="section-label">Premium Collection</div>
+        <h2 className="section-title hero-title">Ready to eat Delights</h2>
+        <p className="section-subtitle">Experience the freshness locked in every bite</p>
       </div>
 
       {/* Search & Filter Section */}
@@ -146,10 +127,15 @@ const Products = () => {
       </div>
 
       {/* Product Grid */}
-      {loading ? (
-        <div className="loading-state">
-          <div className="spinner"></div>
-          <p>Loading Fresh Items...</p>
+      {loading && products.length === 0 ? (
+        <div className="products-grid">
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+            <div key={i} className="skeleton-card">
+              <div className="skeleton-img"><div className="skeleton-shimmer"></div></div>
+              <div className="skeleton-text"><div className="skeleton-shimmer"></div></div>
+              <div className="skeleton-text short"><div className="skeleton-shimmer"></div></div>
+            </div>
+          ))}
         </div>
       ) : (
         <>

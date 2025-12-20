@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // --- Contexts ---
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
+import { ProductProvider } from './context/ProductContext';
 
 // --- Components ---
 import Header from './components/Header';
@@ -137,11 +138,13 @@ const AppContent = () => {
 function App() {
   return (
     <AuthProvider>
-      <CartProvider>
-        <Router>
-          <AppContent />
-        </Router>
-      </CartProvider>
+      <ProductProvider>
+        <CartProvider>
+          <Router>
+            <AppContent />
+          </Router>
+        </CartProvider>
+      </ProductProvider>
     </AuthProvider>
   );
 }

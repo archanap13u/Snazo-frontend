@@ -1,18 +1,17 @@
 /* TERMS & LEGAL PAGE */
 body {
     background-color: #ff4500;
-    /* Base fallback */
 }
 
 /* legal-section acts as the page container */
 .legal-section {
-    background: radial-gradient(circle at top, #ff4500);
+    background: radial-gradient(circle at top, #ff4500, #ff5722);
     min-height: 100vh;
-    padding: 120px 20px 60px;
+    padding: 160px 20px 60px;
     font-family: 'Playfair Display', serif;
     color: #fff;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 /* Abstract Background Shapes */
@@ -26,43 +25,63 @@ body {
     background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent 70%);
     border-radius: 50%;
     pointer-events: none;
+    z-index: 1;
 }
 
-.section-header {
-    text-align: center;
-    margin-bottom: 50px;
+/* Page Sections */
+.section {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
     position: relative;
     z-index: 10;
 }
 
+/* COOKING & FAQ Placeholder styles override */
+.cooking-section,
+.faq-section {
+    margin-bottom: 2rem;
+}
+
+/* Header Section */
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .section-label {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.7);
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
-    font-size: 0.9rem;
-    margin-bottom: 10px;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
 }
 
 .section-title {
+    font-family: 'Playfair Display', serif;
     font-size: 3.5rem;
     font-weight: 900;
-    margin-bottom: 10px;
-    color: #fff;
+    margin-bottom: 1rem;
+    color: #ffd700;
+    /* Goldenrod for primary titles */
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .section-subtitle {
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.8);
-    font-weight: 300;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 800px;
 }
 
 /* TABS */
 .legal-tabs {
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 4rem;
     gap: 15px;
     flex-wrap: wrap;
     position: relative;
@@ -142,19 +161,18 @@ body {
     margin-top: 30px;
     margin-bottom: 15px;
     color: #ffd700;
-    /* Gold accent for headers */
     font-weight: 700;
 }
 
 .legal-card p {
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.9);
     font-size: 1.05rem;
 }
 
 .legal-card ul {
-    margin-left: 20px;
+    margin-left: 10px;
     margin-bottom: 20px;
     list-style-type: none;
 }
@@ -162,125 +180,98 @@ body {
 .legal-card li {
     margin-bottom: 10px;
     position: relative;
-    padding-left: 25px;
+    padding-left: 30px;
     color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
 }
 
 .legal-card li::before {
     content: '❄️';
-    /* Subtle ice bullet */
     position: absolute;
     left: 0;
     top: 2px;
-    font-size: 0.8rem;
-    opacity: 0.7;
+    font-size: 0.9rem;
+    opacity: 0.8;
 }
 
-/* COOKING & FAQ Placeholder styles override */
-.cooking-section,
-.faq-section {
-    display: none;
-    /* Hide if not needed here based on user request to focus on legal */
+/* RESPONSIVE STYLES */
+@media (max-width: 768px) {
+    .legal-section {
+        padding: 120px 15px 40px;
+    }
+
+    .section {
+        margin: 20px auto;
+        padding: 2rem 1rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .legal-tabs {
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+
+    .legal-tab {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        flex: 1 1 calc(50% - 10px);
+        text-align: center;
+        min-width: 140px;
+    }
+
+    .legal-card {
+        padding: 30px 20px;
+        border-radius: 20px;
+    }
+
+    .legal-card h3 {
+        font-size: 1.8rem;
+    }
+
+    .legal-card h4 {
+        font-size: 1.2rem;
+        margin-top: 25px;
+    }
 }
 
-.legal-tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 3rem;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 2rem;
+    }
 
-.legal-tab {
-    padding: 0.8rem 1.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 50px;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-}
+    .legal-tabs {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-.legal-tab.active {
-    background: white;
-    color: #ff4500;
-    border-color: var(--primary);
-}
+    .legal-tab {
+        width: 100%;
+        border-radius: 12px;
+    }
 
-.legal-content {
-    display: none;
-    animation: fadeIn 0.5s ease;
-}
+    .legal-card {
+        padding: 24px 16px;
+    }
 
-.legal-content.active {
-    display: block;
-}
+    .legal-card h3 {
+        font-size: 1.5rem;
+    }
 
-.legal-card {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-}
+    .legal-card li {
+        padding-left: 25px;
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
 
-.legal-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: white;
-}
-
-.legal-card p {
-    margin-bottom: 1rem;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.legal-card ul {
-    margin-left: 2rem;
-    margin-bottom: 1rem;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.legal-card li {
-    margin-bottom: 0.5rem;
-}
-
-.section {
-    padding: 5rem 1.5rem;
-    margin: 9rem 1.5rem;
-}
-
-/* SECTION STYLES */
-.section-header {
-    text-align: center;
-    margin-bottom: 4rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.section-label {
-    color: var(--primary);
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    font-weight: 900;
-    margin-bottom: 1rem;
-    /* background: linear-gradient(135deg, white, var(--accent)); */
-    color: goldenrod;
-
-}
-
-.section-subtitle {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.7);
+    .legal-card h4 {
+        font-size: 1.1rem;
+        margin-top: 20px;
+    }
 }

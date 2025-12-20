@@ -32,18 +32,23 @@ const Product = () => {
   if (!product) return <div className="error-screen">Product Not Found</div>;
 
   return (
-    
+
     <div className="product-display-container">
-      
+
       <div className="product-display">
-        
+
         {/* Left Side - Image */}
         <div className="product-display-left">
           <div className="product-img-list">
-            {/* Thumbnails (Placeholders if only 1 image exists) */}
-            <img src={product.image} alt="" />
-            <img src={product.image} alt="" />
-            <img src={product.image} alt="" />
+            {/* Show thumbnails only if additional images exist */}
+            {product.images && product.images.length > 0 ? (
+              product.images.map((img, index) => (
+                <img key={index} src={img} alt="" />
+              ))
+            ) : (
+              // Optional: Hide empty placeholder or show nothing
+              null
+            )}
           </div>
           <div className="product-display-main-img">
             <img src={product.image} alt={product.name} />
@@ -53,11 +58,10 @@ const Product = () => {
         {/* Right Side - Details */}
         <div className="product-display-right">
           <h1>{product.name}</h1>
-          
+
           <div className="product-rating">
-             {/* Simple Star Display */}
-             {'★'.repeat(product.rating || 4)}{'☆'.repeat(5 - (product.rating || 4))}
-             <span>(122 reviews)</span>
+            {'★'.repeat(product.rating || 0)}{'☆'.repeat(5 - (product.rating || 0))}
+            {product.reviewCount && <span>({product.reviewCount} reviews)</span>}
           </div>
 
           <div className="product-prices">
@@ -70,9 +74,9 @@ const Product = () => {
           </div>
 
           <div className="product-actions">
-            <button 
+            <button
               className="btn-add-cart"
-              onClick={() => addToCart(product.id)}
+              onClick={() => addToCart(product)}
             >
               ADD TO CART
             </button>
