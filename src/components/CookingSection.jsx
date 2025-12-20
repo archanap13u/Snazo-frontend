@@ -14,45 +14,45 @@ const CookingSection = () => {
         <h2 className="section-title">Perfect Cooking Every Time</h2>
         <p className="section-subtitle">Follow our simple instructions to enjoy restaurant-quality meals at home</p>
       </div>
-     
+
       <div className="instruction-tabs">
-        <button 
-          className={`instruction-tab ${activeTab === 'microwave' ? 'active' : ''}`} 
+        <button
+          className={`instruction-tab ${activeTab === 'microwave' ? 'active' : ''}`}
           data-category="microwave"
           onClick={() => handleTabClick('microwave')}
         >
           Microwave
         </button>
-        <button 
-          className={`instruction-tab ${activeTab === 'oven' ? 'active' : ''}`} 
+        <button
+          className={`instruction-tab ${activeTab === 'oven' ? 'active' : ''}`}
           data-category="oven"
           onClick={() => handleTabClick('oven')}
         >
           Oven
         </button>
-        <button 
-          className={`instruction-tab ${activeTab === 'stovetop' ? 'active' : ''}`} 
+        <button
+          className={`instruction-tab ${activeTab === 'stovetop' ? 'active' : ''}`}
           data-category="stovetop"
           onClick={() => handleTabClick('stovetop')}
         >
           Stovetop
         </button>
-        <button 
-          className={`instruction-tab ${activeTab === 'airfryer' ? 'active' : ''}`} 
+        <button
+          className={`instruction-tab ${activeTab === 'airfryer' ? 'active' : ''}`}
           data-category="airfryer"
           onClick={() => handleTabClick('airfryer')}
         >
           Air Fryer
         </button>
       </div>
-     
+
       <div className={`instruction-content ${activeTab === 'microwave' ? 'active' : ''}`} id="microwave">
         <div className="instruction-card">
           <div className="instruction-icon">🍕</div>
           <div className="instruction-details">
             <h3>Microwave Instructions</h3>
-            <p style={{color:'white'}}>For quick and convenient meals, the microwave is your best friend. Follow these steps for perfect results:</p>
-           
+            <p>For quick and convenient meals, the microwave is your best friend. Follow these steps for perfect results:</p>
+
             <div className="instruction-steps">
               <div className="instruction-step">
                 <div className="step-number">1</div>
@@ -71,22 +71,22 @@ const CookingSection = () => {
                 <div className="step-text">Let stand for 1-2 minutes before serving</div>
               </div>
             </div>
-           
+
             <div className="instruction-tips">
               <h4>Pro Tips:</h4>
-              <p style={{color:'white'}}>For best results, rotate the dish halfway through cooking. If your microwave doesn't have a turntable, manually rotate the dish 180 degrees.</p>
+              <p>For best results, rotate the dish halfway through cooking. If your microwave doesn't have a turntable, manually rotate the dish 180 degrees.</p>
             </div>
           </div>
         </div>
       </div>
-     
+
       <div className={`instruction-content ${activeTab === 'oven' ? 'active' : ''}`} id="oven">
         <div className="instruction-card">
           <div className="instruction-icon">🍗</div>
           <div className="instruction-details">
             <h3>Oven Instructions</h3>
-            <p style={{color:'white'}}>For crispy, golden results, nothing beats an oven. Follow these steps for perfect results:</p>
-           
+            <p>For crispy, golden results, nothing beats an oven. Follow these steps for perfect results:</p>
+
             <div className="instruction-steps">
               <div className="instruction-step">
                 <div className="step-number">1</div>
@@ -105,22 +105,22 @@ const CookingSection = () => {
                 <div className="step-text">Let stand for 2-3 minutes before serving</div>
               </div>
             </div>
-           
+
             <div className="instruction-tips">
               <h4>Pro Tips:</h4>
-              <p style={{color:'white'}}>For extra crispiness, place the food directly on the oven rack with a baking sheet below to catch any drips.</p>
+              <p>For extra crispiness, place the food directly on the oven rack with a baking sheet below to catch any drips.</p>
             </div>
           </div>
         </div>
       </div>
-     
+
       <div className={`instruction-content ${activeTab === 'stovetop' ? 'active' : ''}`} id="stovetop">
         <div className="instruction-card">
           <div className="instruction-icon">🍳</div>
           <div className="instruction-details">
             <h3>Stovetop Instructions</h3>
-            <p style={{color:'white'}}>For precise control and delicious results, the stovetop is ideal. Follow these steps for perfect results:</p>
-           
+            <p>For precise control and delicious results, the stovetop is ideal. Follow these steps for perfect results:</p>
+
             <div className="instruction-steps">
               <div className="instruction-step">
                 <div className="step-number">1</div>
@@ -139,22 +139,22 @@ const CookingSection = () => {
                 <div className="step-text">Ensure internal temperature reaches 165°F (74°C)</div>
               </div>
             </div>
-           
+
             <div className="instruction-tips">
               <h4>Pro Tips:</h4>
-              <p style={{color:'white'}}>Don't overcrowd the pan. Cook in batches if necessary to ensure even browning and cooking.</p>
+              <p>Don't overcrowd the pan. Cook in batches if necessary to ensure even browning and cooking.</p>
             </div>
           </div>
         </div>
       </div>
-     
+
       <div className={`instruction-content ${activeTab === 'airfryer' ? 'active' : ''}`} id="airfryer">
         <div className="instruction-card">
           <div className="instruction-icon">🍟</div>
           <div className="instruction-details">
             <h3>Air Fryer Instructions</h3>
-            <p style={{color:'white'}}>For crispy results with less oil, the air fryer is perfect. Follow these steps for perfect results:</p>
-           
+            <p>For crispy results with less oil, the air fryer is perfect. Follow these steps for perfect results:</p>
+
             <div className="instruction-steps">
               <div className="instruction-step">
                 <div className="step-number">1</div>
@@ -173,10 +173,10 @@ const CookingSection = () => {
                 <div className="step-text">Let stand for 1-2 minutes before serving</div>
               </div>
             </div>
-           
+
             <div className="instruction-tips">
               <h4>Pro Tips:</h4>
-              <p style={{color:'white'}}>Don't overcrowd the basket. Cook in batches if necessary to ensure even cooking and browning.</p>
+              <p>Don't overcrowd the basket. Cook in batches if necessary to ensure even cooking and browning.</p>
             </div>
           </div>
         </div>
