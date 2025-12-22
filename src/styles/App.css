@@ -300,6 +300,8 @@ a {
 
 main {
   flex: 1;
+  padding-top: 80px;
+  /* Desktop Header Height */
 }
 
 /* FOOTER STYLES (New Addition) */
@@ -797,6 +799,10 @@ main {
     padding: 14px;
     font-size: 1rem;
   }
+
+  main {
+    padding-top: 70px;
+  }
 }
 
 /* Mobile Landscape and Small Tablets (480px - 768px) */
@@ -919,6 +925,10 @@ main {
   .social-icon {
     width: 32px;
     height: 32px;
+  }
+
+  main {
+    padding-top: 60px;
   }
 }
 

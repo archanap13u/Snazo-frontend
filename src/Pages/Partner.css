@@ -26,7 +26,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 100px 20px 80px;
+  padding: 2.5rem 2rem 5rem;
   background: transparent;
 }
 
@@ -286,7 +286,7 @@
   }
 
   .partner-hero {
-    padding: 80px 20px 60px;
+    padding: 40px 20px 60px;
     min-height: auto;
   }
 
@@ -415,7 +415,7 @@
 /* Mobile Portrait */
 @media (max-width: 480px) {
   .partner-hero {
-    padding: 70px 15px 50px;
+    padding: 30px 15px 50px;
   }
 
   .hero-content h1 {

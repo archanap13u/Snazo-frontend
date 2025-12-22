@@ -7,7 +7,7 @@
 /* legal-section acts as the page container */
 .legal-section {
     background: radial-gradient(circle at top, #ff4500, #ff5722);
-    padding: 160px 20px 40px;
+    padding: 2.5rem 2rem 2.5rem;
     font-family: 'Playfair Display', serif;
     color: #fff;
     position: relative;
@@ -35,12 +35,6 @@
     margin: 2rem auto;
     position: relative;
     z-index: 10;
-}
-
-/* COOKING & FAQ Placeholder styles override */
-.cooking-section,
-.faq-section {
-    margin-bottom: 2rem;
 }
 
 /* Header Section */
@@ -197,7 +191,7 @@
 /* RESPONSIVE STYLES */
 @media (max-width: 768px) {
     .legal-section {
-        padding: 120px 15px 40px;
+        padding: 40px 15px 40px;
     }
 
     .section {
