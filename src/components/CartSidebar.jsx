@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { ordersAPI } from '../services/api';
@@ -12,6 +13,7 @@ const CartSidebar = () => {
     closeCart, openCheckout, closeCheckout,
     updateQuantity, removeFromCart, getCartTotal, clearCart
   } = useCart();
+  const navigate = useNavigate();
 
   const { currentUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
@@ -213,7 +215,7 @@ const CartSidebar = () => {
               <span className="status-label">Latest Order Status</span>
               <span className={`status-pill ${latestOrder.status}`}>{latestOrder.status}</span>
             </div>
-            <button className="btn-small-outline" onClick={() => { closeCart(); window.location.href = '/orders'; }}>
+            <button className="btn-small-outline" onClick={() => { closeCart(); navigate('/orders'); }}>
               Check Order Details
             </button>
           </div>
