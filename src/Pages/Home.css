@@ -394,6 +394,14 @@
   background: #f0f0f0;
 }
 
+/* Desktop - Ensure buttons stay in one line */
+@media (min-width: 769px) {
+  .hero-buttons {
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+  }
+}
+
 /* Responsive - Comprehensive Mobile Optimization */
 @media (max-width: 992px) {
   .hero-container {
@@ -434,7 +442,8 @@
   .hero-section {
     margin-top: 0;
     min-height: auto;
-    padding: 20px 0;
+    padding: 100px 0 20px 0;
+    /* Increased top padding for fixed header */
   }
 
   .section {
@@ -489,7 +498,7 @@
   /* Buttons */
   .hero-btns,
   .hero-buttons {
-    flex-direction: column;
+    flex-direction: column !important;
     gap: 12px;
     align-items: stretch;
     margin-bottom: 30px;
@@ -567,6 +576,8 @@
   .products-section {
     margin: 40px auto;
     padding: 0 15px;
+    overflow: visible !important;
+    min-height: 200px;
   }
 
   .section-header h2,
@@ -575,9 +586,12 @@
   }
 
   .products-grid {
+    display: grid !important;
     grid-template-columns: repeat(2, 1fr);
     /* Fixed 2 columns on tablet */
     gap: 20px;
+    width: 100%;
+    overflow: visible;
   }
 
   /* Promo Banner */
