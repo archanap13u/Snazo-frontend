@@ -517,6 +517,7 @@
 
   .hero-content {
     padding: 0 20px;
+    max-width: 100%;
   }
 
   .hero-badge {
@@ -533,13 +534,19 @@
   .hero-desc {
     font-size: 1rem;
     margin-bottom: 20px;
+    max-width: 90%;
+    /* Limit paragraph width on mobile */
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* Search bar */
   .hero-search-container {
     margin: 0 auto 25px;
     width: 100%;
-    max-width: 100%;
+    max-width: 90%;
+    /* Reduce search bar width */
+    padding: 6px;
   }
 
   .hero-search-input {
@@ -548,8 +555,8 @@
   }
 
   .hero-search-btn {
-    padding: 10px 20px;
-    font-size: 14px;
+    padding: 10px 18px;
+    font-size: 13px;
   }
 
   /* Buttons */
@@ -559,13 +566,18 @@
     gap: 12px;
     align-items: stretch;
     margin-bottom: 30px;
+    max-width: 90%;
+    /* Reduce button container width */
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .btn {
     width: 100%;
     justify-content: center;
     margin: 0;
-    padding: 12px 24px;
+    padding: 12px 20px;
+    /* Reduced padding */
     font-size: 13px;
   }
 
@@ -709,6 +721,7 @@
 
   .hero-content {
     padding: 0 15px;
+    max-width: 100%;
   }
 
   .hero-badge {
@@ -727,11 +740,17 @@
     /* Slightly larger for better readability */
     margin-bottom: 20px;
     line-height: 1.5;
+    max-width: 85%;
+    /* More compact on smaller screens */
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* Search */
   .hero-search-container {
     padding: 5px;
+    max-width: 85%;
+    /* Match paragraph width */
   }
 
   .hero-search-input {
@@ -740,14 +759,18 @@
   }
 
   .hero-search-btn {
-    padding: 12px 20px;
-    font-size: 0.9rem;
+    padding: 12px 16px;
+    font-size: 0.85rem;
   }
 
   /* Buttons */
   .hero-buttons {
     width: 100%;
     padding: 0 10px;
+    max-width: 85%;
+    /* Match other elements */
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .btn {
