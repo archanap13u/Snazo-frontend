@@ -1,9 +1,17 @@
 /* Page Layout */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .home-page {
   background-color: #ff4500;
   color: #e0e0e0;
   font-family: 'Playfair Display', serif;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 /* Skeleton Loader */
@@ -143,7 +151,7 @@
   padding: 8px;
   border-radius: 50px;
   max-width: 500px;
-  margin-bottom: 30px;
+  margin: 0 auto 30px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
@@ -155,6 +163,8 @@
   outline: none;
   background: transparent;
   color: #333;
+  min-width: 0;
+  /* Prevent overflow */
 }
 
 .hero-search-btn {
@@ -167,6 +177,10 @@
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.2s;
+  white-space: nowrap;
+  /* Prevent text wrapping */
+  flex-shrink: 0;
+  /* Prevent button shrinking */
 }
 
 .hero-search-btn:hover {
@@ -176,9 +190,18 @@
 
 .hero-btns {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 20px;
   margin-bottom: 40px;
+  justify-content: center;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+  justify-content: center;
 }
 
 .btn {
@@ -190,6 +213,11 @@
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  /* Prevent text wrapping */
 }
 
 .btn-primary {
@@ -542,20 +570,22 @@
 
   /* Search bar */
   .hero-search-container {
-    margin: 0 auto 25px;
+    margin: 0 auto 20px;
     width: 100%;
-    max-width: 90%;
-    /* Reduce search bar width */
+    max-width: 95%;
+    /* Wider on tablet */
     padding: 6px;
+    gap: 8px;
   }
 
   .hero-search-input {
     font-size: 14px;
     padding: 10px 15px;
+    min-width: 0;
   }
 
   .hero-search-btn {
-    padding: 10px 18px;
+    padding: 10px 20px;
     font-size: 13px;
   }
 
@@ -563,22 +593,25 @@
   .hero-btns,
   .hero-buttons {
     flex-direction: column !important;
+    /* Stack buttons vertically on mobile */
     gap: 12px;
     align-items: stretch;
-    margin-bottom: 30px;
-    max-width: 90%;
-    /* Reduce button container width */
+    margin-bottom: 25px;
+    max-width: 95%;
+    /* Wider on tablet */
     margin-left: auto;
     margin-right: auto;
+    padding: 0;
   }
 
   .btn {
     width: 100%;
+    /* Full width buttons on mobile */
     justify-content: center;
     margin: 0;
-    padding: 12px 20px;
-    /* Reduced padding */
-    font-size: 13px;
+    padding: 14px 24px;
+    font-size: 0.9rem;
+    gap: 6px;
   }
 
   /* Stats */
@@ -748,38 +781,51 @@
 
   /* Search */
   .hero-search-container {
-    padding: 5px;
-    max-width: 85%;
-    /* Match paragraph width */
+    padding: 4px;
+    /* Reduced padding */
+    max-width: 90%;
+    /* Smaller search bar on mobile */
+    margin: 0 auto 20px;
+    gap: 5px;
   }
 
   .hero-search-input {
-    font-size: 0.9rem;
-    padding: 12px;
+    font-size: 0.8rem;
+    /* Smaller font */
+    padding: 8px 10px;
+    /* Reduced padding */
+    min-width: 0;
   }
 
   .hero-search-btn {
-    padding: 12px 16px;
-    font-size: 0.85rem;
+    padding: 8px 14px;
+    /* Smaller button */
+    font-size: 0.75rem;
   }
 
   /* Buttons */
   .hero-buttons {
     width: 100%;
-    padding: 0 10px;
-    max-width: 85%;
-    /* Match other elements */
+    padding: 0;
+    max-width: 90%;
+    /* Match search bar */
     margin-left: auto;
     margin-right: auto;
+    gap: 10px;
+    flex-direction: column !important;
+    /* Ensure vertical stacking on mobile */
   }
 
   .btn {
-    padding: 14px 20px;
-    font-size: 0.9rem;
+    padding: 12px 16px;
+    font-size: 0.85rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 6px;
+    letter-spacing: 0.5px;
+    width: 100%;
+    /* Full width on mobile */
   }
 
   /* Stats */
