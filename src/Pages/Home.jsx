@@ -80,15 +80,15 @@ const Home = () => {
                 <span className="stat-label">Happy Customers</span>
               </div> */}
           </div>
-          <div class="hero-showcase">
-            <div class="product-3d">
-              <div class="product-circle"></div>
-              <div class="product-main">
+          <div className="hero-showcase">
+            <div className="product-3d">
+              <div className="product-circle"></div>
+              <div className="product-main">
                 <img src="https://i.pinimg.com/1200x/60/42/49/604249c513b50ade35a405c272fd5c44.jpg" alt="Premium Food" />
               </div>
-              <div class="floating-element elem-1">✅ 100% Fresh</div>
-              <div class="floating-element elem-2">⭐ 4.9 Rating</div>
-              <div class="floating-element elem-3">🔥 Hot Deal</div>
+              <div className="floating-element elem-1">✅ 100% Fresh</div>
+              <div className="floating-element elem-2">⭐ 4.9 Rating</div>
+              <div className="floating-element elem-3">🔥 Hot Deal</div>
             </div>
           </div>
           {/* <div className="hero-visual">
@@ -130,10 +130,10 @@ const Home = () => {
 
       {/* --- Featured Section --- */}
       <section className="products-section">
-        <div class="section-header scroll-reveal">
-          <div class="section-label">Our Specialties</div>
-          <h2 class="section-title">Featured Menu</h2>
-          <p class="section-subtitle">Handcrafted with love, served with excellence</p>
+        <div className="section-header scroll-reveal">
+          <div className="section-label">Our Specialties</div>
+          <h2 className="section-title">Featured Menu</h2>
+          <p className="section-subtitle">Handcrafted with love, served with excellence</p>
         </div>
 
         {loading && products.length === 0 ? (
