@@ -5,6 +5,7 @@ import ProductCard from '../components/ProductCard'; // Use reusable card
 import { useProducts } from '../context/ProductContext';
 import './Home.css'; // Import CSS
 import ReviewsSection from '../components/ReviewsSection';
+import ReferralBanner from '../components/ReferralBanner';
 import { FaStar, FaCompass } from 'react-icons/fa';
 
 const Home = () => {
@@ -181,6 +182,9 @@ const Home = () => {
         )}
       </section>
       <ReviewsSection />
+
+      {/* --- Referral Link --- */}
+      <ReferralBanner />
 
     </div>
   );

@@ -620,7 +620,8 @@
   /* Hero Section */
   .hero-section {
     margin-top: 0;
-    padding: 20px 0;
+    padding: 60px 0 40px 0;
+    /* Reduced from 100px to 60px for better mobile fit */
   }
 
   .section {
@@ -641,13 +642,16 @@
   }
 
   .hero-title {
-    font-size: 1.8rem;
-    line-height: 1.1;
+    font-size: 2rem;
+    /* Increased from 1.8rem for better readability */
+    line-height: 1.2;
   }
 
   .hero-desc {
-    font-size: 0.9rem;
-    margin-bottom: 25px;
+    font-size: 0.95rem;
+    /* Slightly larger for better readability */
+    margin-bottom: 20px;
+    line-height: 1.5;
   }
 
   /* Search */
@@ -666,9 +670,18 @@
   }
 
   /* Buttons */
+  .hero-buttons {
+    width: 100%;
+    padding: 0 10px;
+  }
+
   .btn {
-    padding: 14px 24px;
-    font-size: 0.95rem;
+    padding: 14px 20px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
   }
 
   /* Stats */
@@ -687,14 +700,17 @@
   /* Visual */
   .hero-visual,
   .hero-showcase {
-    transform: scale(0.65);
+    transform: scale(0.75);
+    /* Increased from 0.65 to 0.75 for better visibility */
     margin-bottom: 0;
+    margin-top: -20px;
   }
 
   .product-circle,
   .product-main {
-    width: 260px;
-    height: 260px;
+    width: 280px;
+    height: 280px;
+    /* Slightly larger for better visual impact */
   }
 
   .floating-element {
@@ -704,7 +720,9 @@
 
   /* Products */
   .products-section {
-    margin: 20px auto;
+    margin: 30px auto 20px;
+    /* Added top margin for better spacing */
+    padding: 0 10px;
   }
 
   .section-header h2,
@@ -719,8 +737,9 @@
   .products-grid {
     grid-template-columns: repeat(2, 1fr);
     /* 2 columns on mobile - Swiggy style */
-    gap: 12px;
-    /* Tighter gap for compact look */
+    gap: 15px;
+    /* Slightly increased gap for better spacing */
+    padding: 0 5px;
   }
 
   /* Promo */

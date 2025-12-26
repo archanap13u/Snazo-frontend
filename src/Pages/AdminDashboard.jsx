@@ -451,6 +451,13 @@ const AdminDashboard = () => {
                         <div className="fw-bold">{o.user ? o.user.name : "Guest"}</div>
                         {/* <div className="text-muted">{o.paymentMethod}</div> */}
                         <div className="text-muted">{new Date(o.date).toLocaleDateString()}</div>
+                        <div className="text-muted" style={{ fontSize: '0.85em' }}>
+                          {new Date(o.date).toLocaleTimeString('en-IN', {
+                            hour: '2-digit',
+                            minute: '2-digit',
+                            hour12: true
+                          })}
+                        </div>
                       </td>
                       <td className="fw-bold">₹{o.totalAmount || o.finalAmount}</td>
                       <td>
@@ -568,6 +575,18 @@ const AdminDashboard = () => {
                   {selectedOrder.details?.address}<br />
                   {selectedOrder.details?.pincode}
                 </p>
+
+                <h4 style={{ marginTop: '20px' }}>Order Information</h4>
+                <p><strong>Order Date:</strong> {new Date(selectedOrder.date).toLocaleDateString('en-IN', {
+                  year: 'numeric',
+                  month: 'long',
+                  day: 'numeric'
+                })}</p>
+                <p><strong>Order Time:</strong> {new Date(selectedOrder.date).toLocaleTimeString('en-IN', {
+                  hour: '2-digit',
+                  minute: '2-digit',
+                  hour12: true
+                })}</p>
 
                 <h4 style={{ marginTop: '20px' }}>Order Status</h4>
                 <span className={`status-pill ${selectedOrder.status}`}>{selectedOrder.status}</span>
