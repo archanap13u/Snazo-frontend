@@ -25,6 +25,8 @@ import AdminDashboard from './Pages/AdminDashboard';
 import Contact from './Pages/Contact';
 import Terms from './Pages/Terms';
 import Partner from './Pages/Partner';
+import Rewards from './Pages/Rewards';
+import Referral from './Pages/Referral';
 import ReviewsSection from './components/ReviewsSection';
 // --- Styles ---
 import './styles/App.css';
@@ -114,6 +116,22 @@ const AppContent = () => {
             element={
               <ProtectedRoute>
                 <Orders />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/rewards"
+            element={
+              <ProtectedRoute>
+                <Rewards />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/referral"
+            element={
+              <ProtectedRoute>
+                <Referral />
               </ProtectedRoute>
             }
           />

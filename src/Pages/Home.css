@@ -488,7 +488,7 @@
   /* Buttons */
   .hero-btns,
   .hero-buttons {
-    flex-direction: column;
+    /* flex-direction: column; */
     gap: 12px;
     align-items: stretch;
     margin-bottom: 30px;
@@ -911,14 +911,11 @@
 
 .hero-buttons {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
   gap: 1.5rem;
   animation: slideUp 0.8s ease-out 0.4s forwards;
   opacity: 0;
-}
-
-.hero-buttons {
-  justify-content: center;
-  gap: 1rem;
 }
 
 .btn {

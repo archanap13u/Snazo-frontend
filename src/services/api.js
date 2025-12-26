@@ -1,7 +1,10 @@
 import axios from 'axios';
 
 // Use environment variable or fallback to production backend
-const API_URL = import.meta.env.VITE_API_URL || 'https://snazo-backend-z0hx.onrender.com/api';
+// Use environment variable or fallback to local/production backend
+// FORCE LOCALHOST DEBUGGING
+const API_URL = 'http://localhost:5000/api';
+// Fallback for production if needed: 'https://snazo-backend-z0hx.onrender.com/api'
 
 const api = axios.create({
   baseURL: API_URL,

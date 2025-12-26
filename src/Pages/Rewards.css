@@ -1,0 +1,169 @@
+.rewards-container {
+    padding-top: 120px;
+    padding-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background: #ff4500;
+}
+
+.rewards-card {
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+.rewards-header {
+    margin-bottom: 30px;
+}
+
+.trophy-icon {
+    font-size: 64px;
+    color: #ffd700;
+    margin-bottom: 10px;
+}
+
+.rewards-header h1 {
+    font-size: 28px;
+    color: #ff4500;
+}
+
+.points-display {
+    background: #fff5f0;
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px dashed #ff4500;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.coin-icon {
+    font-size: 32px;
+    color: #ff4500;
+    margin-bottom: 10px;
+}
+
+.points-value {
+    font-size: 56px;
+    font-weight: 800;
+    color: #333;
+    line-height: 1;
+}
+
+.points-label {
+    font-size: 18px;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.rewards-info {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.rewards-info h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #ff4500;
+    margin-bottom: 10px;
+}
+
+.conversion-rate {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f8f8f8;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.arrow {
+    font-size: 20px;
+    color: #ff4500;
+}
+
+.redeem-btn {
+    width: 100%;
+    padding: 16px;
+    background: #ff4500;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.redeem-btn:hover {
+    background: #e63e00;
+    transform: translateY(-2px);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .rewards-container {
+        padding-top: 100px;
+        /* Reduced padding from header */
+        padding-bottom: 40px;
+        min-height: auto;
+        /* Allow content to dictate height */
+    }
+
+    .rewards-card {
+        width: 95%;
+        /* Use more width on mobile */
+        padding: 25px;
+        /* Less padding inside card */
+    }
+
+    .rewards-header h1 {
+        font-size: 24px;
+    }
+
+    .trophy-icon {
+        font-size: 48px;
+    }
+
+    .points-display {
+        padding: 20px;
+    }
+
+    .points-value {
+        font-size: 42px;
+        /* Smaller points text */
+    }
+
+    .rewards-info h3 {
+        font-size: 16px;
+    }
+
+    .conversion-rate {
+        flex-direction: column;
+        /* Stack vertically on very small screens */
+        gap: 10px;
+        text-align: center;
+    }
+
+    .arrow {
+        transform: rotate(90deg);
+        /* Point down instead of right */
+    }
+
+    .redeem-btn {
+        font-size: 16px;
+        padding: 14px;
+    }
+}

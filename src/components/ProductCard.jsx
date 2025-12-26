@@ -13,8 +13,8 @@ const ProductCard = ({ product }) => {
   const [isWishlist, setIsWishlist] = useState(false);
   const [showFullDesc, setShowFullDesc] = useState(false);
 
-  // Use 'id' (custom) or '_id' (mongo)
-  const productId = product.id || product._id;
+  // Standardize ID as string to match CartContext Map keys
+  const productId = String(product.id || product._id);
 
   // Get current quantity from context
   const cartItem = cart.get(productId);

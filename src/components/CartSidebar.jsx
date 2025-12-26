@@ -13,9 +13,8 @@ const CartSidebar = () => {
     closeCart, openCheckout, closeCheckout,
     updateQuantity, removeFromCart, getCartTotal, clearCart
   } = useCart();
+  const { currentUser, refreshProfile } = useAuth();
   const navigate = useNavigate();
-
-  const { currentUser } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const [serviceablePincodes, setServiceablePincodes] = useState([]);
   const [pincodeAvailability, setPincodeAvailability] = useState(null); // null, 'available', 'unavailable'
@@ -178,7 +177,7 @@ const CartSidebar = () => {
         totalAmount: getFinalTotal(),
         details: {
           ...deliveryDetails,
-          name: currentUser.name
+          name: currentUser.user?.name || currentUser.name
         },
         paymentMethod: paymentMethod,
         promoCode: discountDetails?.code || null,
@@ -188,6 +187,7 @@ const CartSidebar = () => {
       toast.success('Order Placed Successfully! 🎉');
       clearCart();
       closeCart();
+      refreshProfile(); // Refresh points after order
       // closeCheckout(); // No need to call closeCheckout separately if closeCart unmounts/hides everything
     } catch (err) {
       console.error(err);
@@ -228,7 +228,7 @@ const CartSidebar = () => {
               <div className="empty-cart">
                 <span style={{ fontSize: '40px' }}>🛒</span>
                 <p>Your cart is empty</p>
-                <button className="btn-secondary" onClick={closeCart}>Start Shopping</button>
+                <button className="btn-secondary" onClick={() => { closeCart(); navigate('/products'); window.scrollTo(0, 0); }}>Start Shopping</button>
               </div>
             ) : (
               <>
@@ -266,6 +266,9 @@ const CartSidebar = () => {
                   </div>
                   <button className="checkout-btn" onClick={openCheckout}>
                     Proceed to Checkout
+                  </button>
+                  <button className="clear-cart-link" onClick={() => { if (window.confirm("Clear all items?")) clearCart(); }}>
+                    Clear Cart
                   </button>
                 </div>
               </>

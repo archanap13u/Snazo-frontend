@@ -39,7 +39,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product) => {
     setCart(prev => {
       const newCart = new Map(prev);
-      const productId = product._id || product.id;
+      const productId = String(product.id || product._id);
 
       const item = newCart.get(productId);
       if (item) {
@@ -76,14 +76,15 @@ export const CartProvider = ({ children }) => {
   const updateQuantity = (id, change) => {
     setCart(prev => {
       const newCart = new Map(prev);
-      const item = newCart.get(id);
+      const stringId = String(id);
+      const item = newCart.get(stringId);
       if (!item) return prev;
 
       const newQty = item.quantity + change;
       if (newQty <= 0) {
-        newCart.delete(id);
+        newCart.delete(stringId);
       } else {
-        newCart.set(id, { ...item, quantity: newQty });
+        newCart.set(stringId, { ...item, quantity: newQty });
       }
       return newCart;
     });
@@ -92,7 +93,7 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = (id) => {
     setCart(prev => {
       const newCart = new Map(prev);
-      newCart.delete(id);
+      newCart.delete(String(id));
       return newCart;
     });
   };

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useCart } from '../context/CartContext';
-import { FaShoppingCart, FaHome, FaUtensils, FaPhone, FaShieldAlt } from "react-icons/fa";
-import { HiMenu, HiX } from "react-icons/hi";
+import { FaShoppingCart, FaHome, FaUtensils, FaPhone, FaShieldAlt, FaUserCircle, FaBoxOpen, FaSignOutAlt, FaTrophy, FaShareAlt } from "react-icons/fa";
+import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
 import { MdRule } from "react-icons/md";
 import './Header.css';
 // import { GiKnifeFork } from "react-icons/gi";
@@ -15,6 +15,7 @@ const Header = ({ setIsAuthOpen }) => {
   const { currentUser, logout } = useAuth();
   const { getCartCount, cart, toggleCart } = useCart();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
 
@@ -29,12 +30,23 @@ const Header = ({ setIsAuthOpen }) => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
+    const handleClickOutside = (e) => {
+      if (profileOpen && !e.target.closest('.profile-container')) {
+        setProfileOpen(false);
+      }
+    };
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [profileOpen]);
 
   const handleLogout = () => {
     logout();
+    setProfileOpen(false);
     navigate('/');
   };
   const scrollToTop = () => {
@@ -67,9 +79,6 @@ const Header = ({ setIsAuthOpen }) => {
           <Link to="/terms" className="nav-link" onClick={scrollToTop}>Terms & Conditions</Link>
           <Link to="/contact" className="nav-link" onClick={scrollToTop}>Contact</Link>
           <Link to="/partner" className="nav-link partner-link" onClick={scrollToTop}>Partner with us</Link>
-          {currentUser && (
-            <Link to="/orders" className="nav-link" onClick={scrollToTop}>My Orders</Link>
-          )}
           {isAdmin && (
             <Link to="/admin" className="nav-link admin-link">
               Admin panel
@@ -80,7 +89,54 @@ const Header = ({ setIsAuthOpen }) => {
         {/* User Actions */}
         <div className="nav-actions">
           {currentUser ? (
-            <button onClick={handleLogout} className="logout-btn">Logout</button>
+            <div className="profile-container">
+              <button
+                className="profile-btn"
+                onClick={() => setProfileOpen(!profileOpen)}
+                aria-label="User Profile"
+              >
+                <FaUserCircle size={28} />
+                <HiChevronDown className={`chevron-icon ${profileOpen ? 'rotate' : ''}`} />
+              </button>
+
+              {profileOpen && (
+                <div className="profile-dropdown">
+                  <Link
+                    to="/orders"
+                    className="dropdown-item"
+                    onClick={() => {
+                      setProfileOpen(false);
+                      scrollToTop();
+                    }}
+                  >
+                    <FaBoxOpen className="dropdown-icon" /> My Orders
+                  </Link>
+                  <Link
+                    to="/rewards"
+                    className="dropdown-item"
+                    onClick={() => {
+                      setProfileOpen(false);
+                      scrollToTop();
+                    }}
+                  >
+                    <FaTrophy className="dropdown-icon" /> My Rewards
+                  </Link>
+                  <Link
+                    to="/referral"
+                    className="dropdown-item"
+                    onClick={() => {
+                      setProfileOpen(false);
+                      scrollToTop();
+                    }}
+                  >
+                    <FaShareAlt className="dropdown-icon" /> Referral
+                  </Link>
+                  <button onClick={handleLogout} className="dropdown-item logout-item">
+                    <FaSignOutAlt className="dropdown-icon" /> Logout
+                  </button>
+                </div>
+              )}
+            </div>
           ) : (
             <button onClick={() => setIsAuthOpen(true)} className="login-btn">
               Login
@@ -109,7 +165,11 @@ const Header = ({ setIsAuthOpen }) => {
           <Link to="/contact" className="nav-link" onClick={() => { setMenuOpen(false); scrollToTop(); }}>Contact</Link>
           <Link to="/partner" className="nav-link" onClick={() => { setMenuOpen(false); scrollToTop(); }}>Partner with us</Link>
           {currentUser && (
-            <Link to="/orders" className="nav-link" onClick={() => { setMenuOpen(false); scrollToTop(); }}>My Orders</Link>
+            <>
+              <Link to="/orders" className="nav-link" onClick={() => { setMenuOpen(false); scrollToTop(); }}>My Orders</Link>
+              <Link to="/rewards" className="nav-link" onClick={() => { setMenuOpen(false); scrollToTop(); }}>My Rewards</Link>
+              <Link to="/referral" className="nav-link" onClick={() => { setMenuOpen(false); scrollToTop(); }}>Referral</Link>
+            </>
           )}
           {isAdmin && (
             <Link to="/admin" className="nav-link admin-link" onClick={() => { setMenuOpen(false); scrollToTop(); }}>

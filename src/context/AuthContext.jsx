@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import API from '../services/api'; 
+import API from '../services/api';
 
 const AuthContext = createContext();
 
@@ -12,11 +12,11 @@ export const AuthProvider = ({ children }) => {
   // 1. Load User from LocalStorage on App Start
   useEffect(() => {
     const savedData = localStorage.getItem('user_session');
-    
+
     if (savedData) {
       try {
         const parsedData = JSON.parse(savedData);
-        
+
         // Check if data has the structure we expect
         if (parsedData && parsedData.token) {
           setCurrentUser(parsedData); // Set the whole object
@@ -30,6 +30,14 @@ export const AuthProvider = ({ children }) => {
     setLoading(false);
   }, []);
 
+  // 1.1 Auto-refresh profile on load to ensure up-to-date points
+  useEffect(() => {
+    if (currentUser && !loading) {
+      refreshProfile();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loading]);
+
   // 2. Login Function
   const login = async (email, password) => {
     try {
@@ -41,7 +49,7 @@ export const AuthProvider = ({ children }) => {
         // We store the whole response data (token + user info)
         localStorage.setItem('user_session', JSON.stringify(data));
         setCurrentUser(data);
-        
+
         API.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
         return { success: true };
       } else {
@@ -60,14 +68,14 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await API.post('/auth/register', { name, email, password });
       const data = response.data;
-      
+
       if (data.success) {
         // NOTE: Registration often returns ONLY token. 
         // The user object might be missing the role here.
         // We save what we have, but the user might need to re-login to see Admin features.
         localStorage.setItem('user_session', JSON.stringify(data));
         setCurrentUser(data);
-        
+
         API.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
         return { success: true };
       }
@@ -86,8 +94,24 @@ export const AuthProvider = ({ children }) => {
     // Optional: window.location.href = '/'; 
   };
 
+  // 5. Refresh Profile (to update reward points, etc.)
+  const refreshProfile = async () => {
+    if (!currentUser) return;
+    try {
+      const response = await API.get('/auth/profile');
+      if (response.data.success) {
+        // Updated user state with fresh data from backend
+        const updatedUser = { ...currentUser, user: response.data.user };
+        setCurrentUser(updatedUser);
+        localStorage.setItem('user_session', JSON.stringify(updatedUser));
+      }
+    } catch (error) {
+      console.error("Failed to refresh profile:", error);
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ currentUser, login, register, logout, loading }}>
+    <AuthContext.Provider value={{ currentUser, login, register, logout, loading, refreshProfile }}>
       {!loading && children}
     </AuthContext.Provider>
   );
