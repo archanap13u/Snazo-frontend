@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import './Partner.css';
 import PartnerModal from '../components/PartnerModal';
@@ -34,7 +35,9 @@ const Partner = () => {
 
           <div className="hero-buttons">
             <button className="btn-primary" onClick={() => setIsModalOpen(true)}>Start Partnership</button>
-            <Link to="/contact" className="btn-secondary">Talk to Sales</Link>
+            <a href="https://wa.me/919539111199" target="_blank" rel="noopener noreferrer" className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              <FaWhatsapp size={20} /> Chat with Us
+            </a>
           </div>
         </div>
       </section>

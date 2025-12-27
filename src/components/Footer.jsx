@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaInstagram, FaTwitter, FaFacebookF, FaLinkedinIn } from 'react-icons/fa';
 import './Footer.css';
+import snazoLogo from '../assets/logos/snazo-footer-logo.png';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -24,7 +25,7 @@ const Footer = () => {
         <div className="footer-col brand-col">
           <div className="footer-logo">
             <img
-              src="https://i.pinimg.com/736x/3a/0d/3d/3a0d3d385c468b2d00dbb6a00096533e.jpg"
+              src={snazoLogo}
               alt="Snazo Logo"
               className="footer-logo-image"
             />
@@ -71,8 +72,8 @@ const Footer = () => {
             Kandamkulathy Towers
             (Next to Blitz Academy) MG Rd
             Ernakulam, Kerala 682011</p>
-          <p>📧 support@snazo.com</p>
-          <p>📞 +91 98765 43210</p>
+          <p>📧 snazosnax@gmail.com</p>
+          <p>📞 +91 9539111199</p>
         </div>
 
       </div>

@@ -10,6 +10,7 @@ import './Header.css';
 import { RiFilePaper2Fill } from "react-icons/ri";
 import { IoDocumentTextSharp, IoPeopleSharp } from "react-icons/io5";
 import { toast } from 'react-toastify';
+import snazoLogo from '../assets/logos/snazo-logo-new.png';
 
 const Header = ({ setIsAuthOpen }) => {
   const { currentUser, logout } = useAuth();
@@ -65,7 +66,7 @@ const Header = ({ setIsAuthOpen }) => {
         {/* Logo */}
         <Link to="/" className="nav-logo">
           <img
-            src="https://i.pinimg.com/736x/3a/0d/3d/3a0d3d385c468b2d00dbb6a00096533e.jpg"
+            src={snazoLogo}
             alt="Logo"
             className="logo-image"
           />

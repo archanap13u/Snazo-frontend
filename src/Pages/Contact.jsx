@@ -30,8 +30,8 @@ const Contact = () => {
             <div className="contact-icon">📞</div>
             <div className="contact-title">Phone Number</div>
             <div className="contact-content">
-              <a href="tel:+919876543210" className="contact-link">+91 98765 43210</a><br />
-              <a href="tel:+918765432109" className="contact-link">+91 87654 32109</a><br />
+              <a href="tel:+919539111199" className="contact-link">+91 9539111199</a><br />
+              {/* <a href="tel:+918765432109" className="contact-link">+91 87654 32109</a><br /> */}
               <small className="contact-small">Mon–Sat: 9AM–8PM</small>
             </div>
           </div>
@@ -41,8 +41,8 @@ const Contact = () => {
             <div className="contact-icon">📧</div>
             <div className="contact-title">Email Us</div>
             <div className="contact-content">
-              <a href="mailto:hello@snazo.com" className="contact-link">hello@snazo.com</a><br />
-              <a href="mailto:orders@snazo.com" className="contact-link">orders@snazo.com</a><br />
+              <a href="mailto:hello@snazo.com" className="contact-link">snazosnax@gmail.com</a><br />
+              {/* <a href="mailto:orders@snazo.com" className="contact-link">orders@snazo.com</a><br /> */}
               <small className="contact-small">We reply within 24 hours</small>
             </div>
           </div>
