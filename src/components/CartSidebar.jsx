@@ -267,9 +267,7 @@ const CartSidebar = () => {
                   <button className="checkout-btn" onClick={openCheckout}>
                     Proceed to Checkout
                   </button>
-                  <button className="clear-cart-link" onClick={() => { if (window.confirm("Clear all items?")) clearCart(); }}>
-                    Clear Cart
-                  </button>
+
                 </div>
               </>
             )}
